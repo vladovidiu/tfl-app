@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Card } from 'semantic-ui-react';
 
 import Spinner from '../common/Spinner';
@@ -16,7 +14,7 @@ const API_ROOT = `https://api.tfl.gov.uk/line`;
 class TubeLine extends React.Component {
     constructor() {
         super();
-        this.interval;
+        this.interval = null;
         this.state = {
             status: '',
             disruptions: [],
@@ -49,7 +47,7 @@ class TubeLine extends React.Component {
     render() {
         const { line } = this.props;
         return (
-            <Card className={'line-' + line.id}>
+            <Card className={'line-' + line.id + ' clickable'} href={'/line/' + line.id}>
                 <Card.Content>
                     <Card.Header>{line.name}</Card.Header>
                     <Card.Description>

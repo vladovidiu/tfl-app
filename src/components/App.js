@@ -3,6 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import TubeTrackerPage from './Tube/TubeTrackerPage';
+import LineTrackerPage from './Line/LineTrackerPage';
 
 import './App.css';
 
@@ -14,9 +15,9 @@ class App extends Component {
                     <NavLink className="item" activeClassName="active" exact to="/">
                         Tube Status
                     </NavLink>
-                    {/* <Route exact path="/line" component={TubeTrackerPage} /> */}
                 </div>
                 <Route exact path="/" component={TubeTrackerPage} />
+                <Route exact path="/line/:id" component={LineTrackerPage} />
             </Container>
         );
     }
