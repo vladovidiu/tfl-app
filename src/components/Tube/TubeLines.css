@@ -1,0 +1,83 @@
+.line-bakerloo {
+    background: #894e24 !important;
+}
+
+.line-bakerloo .content .header,
+.line-bakerloo .content .description {
+    color: #fff !important;
+}
+
+.line-central {
+    background: #dc241f !important;
+}
+
+.line-central .content .header,
+.line-central .content .description {
+    color: #fff !important;
+}
+
+.line-circle {
+    background: #ffce00 !important;
+}
+
+.line-district {
+    background: #007229 !important;
+}
+
+.line-district .content .header,
+.line-district .content .description {
+    color: #fff !important;
+}
+
+.line-hammersmith-city {
+    background: #d799af !important;
+}
+
+.line-jubilee {
+    background: #6a7278 !important;
+}
+
+.line-jubilee .content .header,
+.line-jubilee .content .description {
+    color: #fff !important;
+}
+
+.line-metropolitan {
+    background: #751056 !important;
+}
+
+.line-metropolitan .content .header,
+.line-metropolitan .content .description {
+    color: #fff !important;
+}
+
+.line-northern {
+    background: #000000 !important;
+}
+
+.line-northern .content .header,
+.line-northern .content .description {
+    color: #fff !important;
+}
+
+.line-piccadilly {
+    background: #0019a8 !important;
+}
+
+.line-piccadilly .content .header,
+.line-piccadilly .content .description {
+    color: #fff !important;
+}
+
+.line-victoria {
+    background: #00a0e2 !important;
+}
+
+.line-victoria .content .header,
+.line-victoria .content .description {
+    color: #fff !important;
+}
+
+.line-waterloo-city {
+    background: #76d0bd !important;
+}
