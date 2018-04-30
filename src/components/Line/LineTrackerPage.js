@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { getLineDetails } from '../../actions/lineActions';
 
 import LineBranches from './LineBranches';
 import LineStations from './LineStations';
@@ -19,7 +19,7 @@ class Test extends React.Component {
         const {
             match: { params },
         } = this.props;
-        axios.get(`${API_ROOT}/${params.id}/route/sequence/outbound`).then(response => {
+        getLineDetails(params.id).then(response => {
             this.setState({ lineDetails: response.data });
         });
     }
