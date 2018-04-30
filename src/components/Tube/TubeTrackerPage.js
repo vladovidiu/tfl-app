@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TubeLinesList from './TubeLinesList';
-import * as actions from '../../actions/tube-lines';
+import * as actions from '../../actions/tubeActions';
 
 const mapStateToProps = state => ({
     lines: state.lines,

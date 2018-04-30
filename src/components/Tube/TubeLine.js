@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import { fetchLineStatus } from '../../actions/tubeActions';
 
 import { Card } from 'semantic-ui-react';
 
@@ -9,7 +9,6 @@ import Spinner from '../common/Spinner';
 import './TubeLines.css';
 
 const POLLING_TIME = 60 * 1000;
-const API_ROOT = `https://api.tfl.gov.uk/line`;
 
 class TubeLine extends React.Component {
     constructor() {
@@ -25,7 +24,7 @@ class TubeLine extends React.Component {
     fetchLineStatus() {
         const { line } = this.props;
         this.setState({ loading: true });
-        axios.get(`${API_ROOT}/${line.id}/status`).then(response => {
+        fetchLineStatus(line.id).then(response => {
             const { data } = response;
             const { lineStatuses } = data[0];
             this.setState({

@@ -14,3 +14,7 @@ export function fetchLines() {
         });
     };
 }
+
+export function fetchLineStatus(id) {
+    return axios.get(`${API_ROOT}/${id}/status`);
+}

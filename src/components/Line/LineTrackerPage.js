@@ -1,27 +1,52 @@
 import React from 'react';
 import axios from 'axios';
 
+import LineBranches from './LineBranches';
+import LineStations from './LineStations';
+import Spinner from '../common/Spinner';
+
 const API_ROOT = 'https://api.tfl.gov.uk/line';
 
 class Test extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            stations: [],
+            lineDetails: {},
         };
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const {
             match: { params },
         } = this.props;
         axios.get(`${API_ROOT}/${params.id}/route/sequence/outbound`).then(response => {
-            console.log(response.data);
+            this.setState({ lineDetails: response.data });
         });
     }
 
     render() {
-        return <div>Hello</div>;
+        const { lineDetails } = this.state;
+        return (
+            <div className="ui grid">
+                <div className="six wide column">
+                    {this.state.lineDetails.orderedLineRoutes ? (
+                        <LineBranches
+                            branches={lineDetails.orderedLineRoutes}
+                            line={lineDetails.lineName}
+                        />
+                    ) : (
+                        <Spinner />
+                    )}
+                </div>
+                <div className="ten wide column">
+                    {this.state.lineDetails.orderedLineRoutes ? (
+                        <LineStations stations={lineDetails.stations} line={lineDetails.lineName} />
+                    ) : (
+                        <Spinner />
+                    )}
+                </div>
+            </div>
+        );
     }
 }
 
