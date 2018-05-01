@@ -15,4 +15,9 @@ const LineBranches = ({ line, branches }) => {
     );
 };
 
+LineBranches.propTypes = {
+    line: PropTypes.string.isRequired,
+    branches: PropTypes.array.isRequired,
+};
+
 export default LineBranches;

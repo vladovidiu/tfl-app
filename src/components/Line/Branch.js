@@ -14,4 +14,8 @@ const Branch = ({ branch }) => (
     </List.Item>
 );
 
+Branch.propTypes = {
+    branch: PropTypes.object.isRequired,
+};
+
 export default Branch;

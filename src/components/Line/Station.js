@@ -10,4 +10,8 @@ const Station = ({ station }) => (
     </List.Item>
 );
 
+Station.propTypes = {
+    station: PropTypes.object.isRequired,
+};
+
 export default Station;

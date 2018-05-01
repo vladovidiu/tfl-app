@@ -5,7 +5,7 @@ import LineBranches from './LineBranches';
 import LineStations from './LineStations';
 import Spinner from '../common/Spinner';
 
-const API_ROOT = 'https://api.tfl.gov.uk/line';
+import { Grid } from 'semantic-ui-react';
 
 class Test extends React.Component {
     constructor(props) {
@@ -27,24 +27,35 @@ class Test extends React.Component {
     render() {
         const { lineDetails } = this.state;
         return (
-            <div className="ui grid">
-                <div className="six wide column">
-                    {this.state.lineDetails.orderedLineRoutes ? (
-                        <LineBranches
-                            branches={lineDetails.orderedLineRoutes}
-                            line={lineDetails.lineName}
-                        />
-                    ) : (
-                        <Spinner />
-                    )}
-                </div>
-                <div className="ten wide column">
-                    {this.state.lineDetails.orderedLineRoutes ? (
-                        <LineStations stations={lineDetails.stations} line={lineDetails.lineName} />
-                    ) : (
-                        <Spinner />
-                    )}
-                </div>
+            <div>
+                {this.state.lineDetails.orderedLineRoutes ? (
+                    <div>
+                        <div className="padded-bottom-grid">
+                            <LineBranches
+                                branches={lineDetails.orderedLineRoutes}
+                                line={lineDetails.lineName}
+                            />
+                        </div>
+                        <Grid columns={2} divided stackable>
+                            <Grid.Row>
+                                <Grid.Column>
+                                    <LineStations
+                                        stations={lineDetails.stations}
+                                        line={lineDetails.lineName}
+                                    />
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <LineStations
+                                        stations={lineDetails.stations}
+                                        line={lineDetails.lineName}
+                                    />
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
+                    </div>
+                ) : (
+                    <Spinner />
+                )}
             </div>
         );
     }
