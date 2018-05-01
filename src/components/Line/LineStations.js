@@ -10,14 +10,16 @@ const compareStationsNames = (first, second) => {
     return 0;
 };
 
-const LineStations = ({ line, stations }) => {
+const LineStations = ({ line, stations, onClick }) => {
     return (
         <div>
             <h2>{line} line stations</h2>
             <List bulleted>
                 {stations
                     .sort(compareStationsNames)
-                    .map(station => <Station station={station} key={station.name} />)}
+                    .map(station => (
+                        <Station station={station} key={station.name} onClick={onClick} />
+                    ))}
             </List>
         </div>
     );
